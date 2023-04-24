@@ -28,4 +28,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 cnpm install
 #运行项目
 cnpm run server
-网址：http://localhost:8080/
+网址：http://localhost:5173/
