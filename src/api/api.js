@@ -4,5 +4,5 @@ import axios from 'axios'
 axios.defaults.timeout = 100000
 
 export const getAllData = params => {
-    return axios.get(`http://123.60.190.167:8088//datasystem-client/labelManage/getLabelFeature?id=10991`,{ params: params });
+    return axios.get(`/vue-project/datasystem-client/labelManage/getLabelFeature?id=10991`,{ params: params });
 };
