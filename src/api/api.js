@@ -6,3 +6,11 @@ axios.defaults.timeout = 100000
 export const getAllData = params => {
     return axios.get(`/vue-project/datasystem-client/labelManage/getLabelFeature?id=10991`,{ params: params });
 };
+
+export function getArticleList (id) {
+    return request({
+        url: '/vue-project/datasystem-client/labelManage/getLabelFeature',
+        method: 'GET',
+        id
+    })
+}

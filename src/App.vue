@@ -33,7 +33,6 @@ import HelloWorld from './components/HelloWorld.vue'
 import axios from "axios";
 // 请求延时（毫秒数，如果请求话费超过了'timeout'的时间，请求将被中断）
 axios.defaults.timeout = 100000
-import {getAllData} from "@/api/api";
 
 /*getAllData().then(
     res=>{
@@ -76,27 +75,35 @@ export default {
   methods: {
     GetUserInfo() {
       //axios.get('http://123.60.190.167:8088//datasystem-client/labelManage/getLabelFeature?id=10991')
-      getAllData()
-          .then(
-          response => {
-            let data = response.data;
-            let result = data.data;
-            console.log(result)
-            result.forEach(
-                element => {
-                  this.tableData.push(
-                      {
-                        name: element.userName,
-                        date: element.createTime,
-                        address: element.operationType
+
+      const getNewList = () => {
+        const params = {
+          id: 10991
+        }
+        getArticleList(params)
+            //getAllData()
+            .then(
+                response => {
+                  let data = response.data;
+                  let result = data.data;
+                  console.log(result)
+                  result.forEach(
+                      element => {
+                        this.tableData.push(
+                            {
+                              name: element.userName,
+                              date: element.createTime,
+                              address: element.operationType
+                            }
+                        );
                       }
                   );
                 }
-            );
-          }
-      )
+            )
+      }
     }
-  },
+  }
+  ,
   mounted() {
     this.GetUserInfo()
   },
